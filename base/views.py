@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
 
+
 def loginPage(request):
     page = 'login'
     if request.method == 'POST':
