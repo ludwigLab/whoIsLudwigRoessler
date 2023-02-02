@@ -1,0 +1,79 @@
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="enroll"
+      tabindex="-1"
+      aria-labelledby="enrollLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="enrollLabel">Enrollment</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="lead">Fill out this form and we will get back to you</p>
+            
+           
+            {% if page == 'login' %}
+                <div>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        
+                        <label>Username: </label>
+                        <input type="text" name="username" placeholder="Enter Username" />
+
+                        <label>Password: </label>
+                        <input type="password" name="password" placeholder="Enter Password" />
+
+                        <input type="submit" value="Login"/>
+
+                    </form>
+                    <br>
+                    <p> Noch kein Benutzerkonto?</p>
+                    <a href="{% url 'register' %}"> Benutzerkonto erstellen!</a>
+                </div>
+
+                {% else %}
+                <div>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        {{form.as_p}}
+
+
+                        <input type="submit" value="Login"/>
+                    
+
+                    </form>
+                    <br>
+                    <p> Schon angemeldet?</p>
+                    <a href="{% url 'login' %}"> Anmelden</a>
+                </div>
+
+                {% endif %}
+
+
+
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>

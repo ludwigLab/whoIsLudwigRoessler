@@ -52,7 +52,22 @@ def registerPage(request):
 
 
 def landingpage(request):
-    return render(request, 'base/landingpage.html')
+    page = 'register'
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, 'User does not exist!')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('homepage')
+        else:
+            messages.error(request, 'Password is not correct!')
+    context = {'page': page}
+    return render(request, 'base/landingpage.html', context)
 
 
 
