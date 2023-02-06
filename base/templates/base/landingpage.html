@@ -8,20 +8,17 @@
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
           <div>
-            <h1>Become a <span class="text-warning"> Web Developer </span></h1>
+            <h1>Willkommen auf meiner <span class="text-warning"> Webseite</span></h1>
             <p class="lead my-4">
+
               We focus on teaching our students the fundamentals of the latest
               and greatest technologies to prepare them for their first dev role
             </p>
-            <a href="{% url 'register' %}"> 
-              <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">
-                Jetzt Registrieren!
-              </button>
-            </a>
+    
           </div>
             <img
               style="height: 400px;"
-              src="{% static 'images/testSVG.svg' %} #svgView(viewBox(0,0,400,500))"
+              src="{% static 'images/testSVG.svg' %} #svgView(viewBox(100,0,200,300))"
               alt=""
             />
         </div>
@@ -37,14 +34,14 @@
             <form method="POST" action="">
               {% csrf_token %}
               
-              <label>Username: </label>
+             
               <input class="form-control" style="display: inline; width: 200px;" type="text" name="username" placeholder="Enter Username" />
       
-              <label>Password: </label>
+          
               <input class="form-control" style="display: inline; width: 200px;" type="password" name="password" placeholder="Enter Password" />
       
               
-              <button type="submit" class="btn btn-primary" value="Login"> Einloggen</button>
+              <button type="submit" class=" btn bt-primary" value="Login"> Einloggen</button>
           </form>
           </div>
         </div>
